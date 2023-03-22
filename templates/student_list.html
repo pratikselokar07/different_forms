@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+<title></title>
+  
+  <body >
+    <center>
+        <br><br><br><br><br><br>
+        <center>
+        <br><br><br>
+<table style="border:2px solid black">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in students %}
+        <tr>
+            <td>{{i.id}}</td> 
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone}}</td>
+            {% comment %} <td>
+                <a href="edit/{{ i.id }}">Edit</a>  
+                <a href="delete/{{ i.id }}">Delete</a> 
+            </td> {% endcomment %}
+    
+        </tr>
+        
+        {% endfor %}
+
+    </tbody>
+</table>
+
+</center>
+
+
+</body>
+</html>

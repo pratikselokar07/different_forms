@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <center>
+        <h1>Basic form</h1>
+        <br><br><br><br><br><br>
+        <form method="POST" action="{% url 'basic_form' %}" >
+            {% csrf_token %}
+
+            <label>Name : </label>{{form.name}}
+            <br>
+            <label>Email : </label>{{form.email}}
+            <br>
+            <label>Phone : </label>{{form.phone}}
+            <br>
+            <input type="submit" value="Submit">
+            <br><br>
+            {{form.errors}}
+        </form>
+    </center>
+</body>
+</html>
