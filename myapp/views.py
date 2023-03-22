@@ -59,10 +59,9 @@ def StudentList(request):
 
 def StudentModelFormSetView(request):
     students = Student.objects.all()
-    # use an empty queryset
+    # empty queryset to show only fields
     formset = StudentModel_FormSet(queryset=Student.objects.none())
     if request.method == 'POST':
-        # create a formset with the submitted data
         formset = StudentModel_FormSet(request.POST)
         if formset.is_valid():
             formset.save()
