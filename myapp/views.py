@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.views import View
 # from django.views import View
-from myapp.forms import StudentModelForm,StudentBasicForm
-from django.forms import formset_factory
+from .forms import StudentModelForm,StudentBasicForm,StudentModel_FormSet
+from django.forms import formset_factory, modelformset_factory
 from myapp.models import Student
 
 def StudentBasicFormView(request):
@@ -55,3 +55,16 @@ def StudentFormSetView(request):
 def StudentList(request):
     students=Student.objects.all()
     return render(request,'student_list.html',{'students':students})
+
+
+def StudentModelFormSetView(request):
+    students = Student.objects.all()
+    # use an empty queryset
+    formset = StudentModel_FormSet(queryset=Student.objects.none())
+    if request.method == 'POST':
+        # create a formset with the submitted data
+        formset = StudentModel_FormSet(request.POST)
+        if formset.is_valid():
+            formset.save()
+            return redirect('success')
+    return render(request, 'model_formset.html', {'formset': formset})

@@ -8,4 +8,5 @@ urlpatterns = [
     path('form_set/',views.StudentFormSetView,name='form_set'),
     path('success/',views.success,name='success'),
     path('student_list/',views.StudentList,name='student_list'),
+    path('model_formset/',views.StudentModelFormSetView,name='model_formset'),
 ]
